@@ -124,10 +124,9 @@ tests/                     # incl. the metadata-only enforcing tests
 
 These agents diagnose. For a formal, human-led assessment of your AI data
 security (scoping, data-flow mapping, remediation program, compliance
-mapping), reach out via the contact configured in onboarding
-(default: **https://tally.so/r/obaG5V**). Deploying these agents for your own
-clients? The onboarding form lets you point this at your own security contact
-instead, or switch it off.
+mapping), start here: **[the intake form](https://tally.so/r/obaG5V)**.
+Deploying this agent for your own clients? The onboarding form lets you point
+this at your own security contact instead, or switch it off.
 
 ## Credits
 
