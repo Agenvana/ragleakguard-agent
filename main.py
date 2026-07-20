@@ -9,7 +9,6 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 
 from agency import create_agency
-from safe_rag_agency import create_safe_rag_agency
 from agency_swarm.integrations.fastapi import run_fastapi
 
 
@@ -18,7 +17,6 @@ if __name__ == "__main__":
         agencies={
             # you must export your create agency function here
             "ai-data-security-auditor": create_agency,
-            "safe-rag-agent": create_safe_rag_agency,
         },
         port=8080,
         enable_logging=True

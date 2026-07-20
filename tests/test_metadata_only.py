@@ -16,9 +16,6 @@ from rlg_common import openai_store, stores, summary
 from auditor_agent.tools.ScanFiles import ScanFiles
 from auditor_agent.tools.ScanChromaStore import ScanChromaStore
 from auditor_agent.tools.ScanOpenAIVectorStore import ScanOpenAIVectorStore
-from safe_rag_agent.tools.ScanDocument import ScanDocument
-from safe_rag_agent.tools.SafeIngestDocument import SafeIngestDocument
-from safe_rag_agent.tools.ScanKnowledgeBase import ScanKnowledgeBase
 
 
 def test_scan_files_output_never_contains_raw_values(use_fake_detect, docs_folder):
@@ -54,42 +51,6 @@ def test_scan_openai_vector_store_output_never_contains_raw_values(
     assert "EMAIL_ADDRESS" in out and "PHONE_NUMBER" in out
     assert "notes.txt#chunk0" in out
     assert "shipping takes" not in out  # clean chunk text must not leak either
-
-
-def test_scan_document_output_never_contains_raw_values(use_fake_detect, risky_doc):
-    out = ScanDocument(path=risky_doc).run()
-    assert_metadata_only(out)
-    parsed = json.loads(out)
-    assert parsed["verdict"] == "REVIEW_REQUIRED"
-    assert parsed["types"]["EMAIL_ADDRESS"] == 1
-
-
-def test_safe_ingest_refusal_never_contains_raw_values_and_never_uploads(
-    use_fake_detect, monkeypatch, risky_doc
-):
-    def must_not_upload(*a, **k):
-        raise AssertionError("upload attempted for a document that failed its scan")
-
-    monkeypatch.setattr(openai_store, "get_or_create_vector_store", must_not_upload)
-    monkeypatch.setattr(openai_store, "upload_file_to_vector_store", must_not_upload)
-    out = SafeIngestDocument(path=risky_doc).run()
-    assert_metadata_only(out)
-    parsed = json.loads(out)
-    assert parsed["status"] == "REFUSED"
-    assert "AU_TFN" in parsed["types"]
-
-
-def test_scan_knowledge_base_output_never_contains_raw_values(
-    use_fake_detect, monkeypatch, fake_store_chunks
-):
-    monkeypatch.setattr(openai_store, "resolve_vector_store_id", lambda d, explicit=None: "vs_test123")
-    monkeypatch.setattr(openai_store, "iter_vector_store_chunks", lambda vs_id: iter(fake_store_chunks))
-    out = ScanKnowledgeBase().run()
-    assert_metadata_only(out)
-    assert "PERSON" in out
-    parsed = json.loads(out)
-    assert parsed["totals"]["records"] == 3
-    assert parsed["totals"]["records_with_findings"] == 2
 
 
 def test_masked_samples_contain_zero_original_characters(use_fake_detect):
