@@ -52,6 +52,29 @@ Detection engine: [RAGLeakGuard](https://github.com/Agenvana/RAGLeakGuard)
 US entities are on by default; `locale='au'` adds Australian identifiers
 (TFN, ABN, ACN, Medicare, AU phone formats) with checksum validation.
 
+## Use the auditor inside YOUR agency
+
+The deployable agencies above are thin wrappers; the reusable unit is the
+agent. To add security auditing to an existing Agency Swarm project (no RAG
+required), copy `auditor_agent/` and `rlg_common/` into your repo, add
+`ragleakguard[detect,chroma]==0.1.0` to your requirements, and wire the agent
+into your chart:
+
+```python
+from auditor_agent import auditor_agent
+
+agency = Agency(
+    my_orchestrator, auditor_agent,
+    communication_flows=[(my_orchestrator, auditor_agent)],
+)
+```
+
+Your orchestrator can now delegate questions like "what sensitive data is in
+our store?" to the auditor. The tools are also plain `BaseTool` classes: copy
+`auditor_agent/tools/` into any agent's `tools_folder` (keep `rlg_common/`
+importable) and that agent gains `ScanFiles` / `ScanChromaStore` /
+`ScanOpenAIVectorStore` directly.
+
 ## Quick start (local)
 
 Requires **Python 3.12** (agency-swarm needs ≥3.12; ragleakguard's detection
