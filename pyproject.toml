@@ -1,0 +1,11 @@
+# only listed properties are used by the system
+
+[project]
+name = "ragleakguard-agent"
+description = "AI Data Security Auditor + Safe RAG Agent: scan documents and vector stores for sensitive data before your agents remember it. Powered by RAGLeakGuard."
+version = "0.1.0"
+license = { text = "Apache-2.0" }
+keywords = ["agency-swarm", "agencii", "security", "pii", "rag", "ragleakguard"]
+
+[tool.template]
+version = "0.0.2"
