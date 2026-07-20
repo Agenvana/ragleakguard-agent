@@ -57,6 +57,16 @@ class OnboardingTool(BaseTool):
         },
     )
 
+    assessment_contact: Optional[str] = Field(
+        "https://tally.so/r/obaG5V",
+        description="Where the agents softly point users who need a formal, human-led "
+        "AI data-security assessment (email or URL). Deploying for your own clients? "
+        "Replace this with your security team's contact, or clear it to disable the mention.",
+        json_schema_extra={
+            "ui:title": "Assessment Contact",
+        },
+    )
+
     def run(self):
         """
         Saves the configuration as a Python file with a config object.

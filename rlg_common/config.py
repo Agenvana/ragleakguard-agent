@@ -13,6 +13,7 @@ _DEFAULTS: Dict[str, Any] = {
     "locale": "default",
     "business_overview": None,
     "data_context": None,
+    "assessment_contact": None,
 }
 
 
@@ -47,6 +48,15 @@ def render_shared_instructions() -> str:
         extra.append(f"## Client business context\n{cfg['business_overview']}")
     if cfg.get("data_context"):
         extra.append(f"## Client data context\n{cfg['data_context']}")
+    if cfg.get("assessment_contact"):
+        extra.append(
+            "## Formal assessments (soft mention only)\n"
+            f"Commissioned, human-led AI data-security assessments are available at: "
+            f"{cfg['assessment_contact']}\n"
+            "Mention this at most once per conversation, only after reporting a scan "
+            "whose risk level is HIGH or ELEVATED, in one sentence, never pushy. If "
+            "the user does not pick it up, do not raise it again."
+        )
     if extra:
         shared = shared + "\n\n" + "\n\n".join(extra)
     return shared
