@@ -125,8 +125,10 @@ tests/                     # incl. the metadata-only enforcing tests
 These agents diagnose. For a formal, human-led assessment of your AI data
 security (scoping, data-flow mapping, remediation program, compliance
 mapping), start here: **[the intake form](https://tally.so/r/obaG5V)**.
-Deploying this agent for your own clients? The onboarding form lets you point
-this at your own security contact instead, or switch it off.
+The same goes for managed deployment: if you want this auditor running inside
+your own cloud rather than on Agencii, that's an engagement, not a README
+section. Deploying this agent for your own clients? The onboarding form lets
+you point the contact at your own security team instead, or switch it off.
 
 ## Credits
 
