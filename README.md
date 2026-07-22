@@ -1,5 +1,10 @@
 # RAGLeakGuard Agent — the agent that audits agents
 
+[![tests](https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml)
+[![release](https://img.shields.io/github/v/release/Agenvana/ragleakguard-agent)](https://github.com/Agenvana/ragleakguard-agent/releases)
+[![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![powered by RAGLeakGuard](https://img.shields.io/badge/powered%20by-RAGLeakGuard-0F172A)](https://github.com/Agenvana/RAGLeakGuard)
+
 A ready-to-deploy [Agency Swarm](https://agency-swarm.ai/) agency: the
 **AI Data Security Auditor** scans documents before ingestion, and Chroma /
 OpenAI vector stores on demand, reporting what your agents already remember.
