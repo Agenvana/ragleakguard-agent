@@ -93,7 +93,8 @@ python -m pytest tests/ -q
 
 ## Deploy on Agencii
 
-1. Sign in at [agencii.ai](https://agencii.ai/) and install the
+1. Sign up at [agencii.ai](https://agencii.ai/signup?referral=a0d8a28b-56c3-47a4-9ebf-7faa8c2b0caf)
+   (referral link) and install the
    [Agencii GitHub App](https://github.com/apps/agencii) with access to this repo.
 2. Add `OPENAI_API_KEY` in the Agencii dashboard environment settings.
 3. Push to `main`. The agency deploys as `ai-data-security-auditor` from `main.py`.
