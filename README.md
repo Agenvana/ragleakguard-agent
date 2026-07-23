@@ -135,9 +135,10 @@ you point the contact at your own security team instead, or switch it off.
 
 ## Status
 
-[![tests](https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml)
-[![release](https://img.shields.io/github/v/release/Agenvana/ragleakguard-agent)](https://github.com/Agenvana/ragleakguard-agent/releases)
-[![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[Tests](https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml): passing ·
+[Latest release](https://github.com/Agenvana/ragleakguard-agent/releases): v0.1.0 ·
+License: [Apache-2.0](LICENSE) ·
+Powered by [RAGLeakGuard](https://github.com/Agenvana/RAGLeakGuard)
 
 ## Credits
 
