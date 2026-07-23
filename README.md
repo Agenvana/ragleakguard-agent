@@ -1,12 +1,5 @@
 # RAGLeakGuard Agent — the agent that audits agents
 
-<p>
-  <a href="https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml"><img src="https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml/badge.svg" alt="tests" height="20"></a>
-  <a href="https://github.com/Agenvana/ragleakguard-agent/releases"><img src="https://img.shields.io/github/v/release/Agenvana/ragleakguard-agent" alt="release" height="20"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="license" height="20"></a>
-  <a href="https://github.com/Agenvana/RAGLeakGuard"><img src="https://img.shields.io/badge/powered%20by-RAGLeakGuard-0F172A" alt="powered by RAGLeakGuard" height="20"></a>
-</p>
-
 **A security guard for AI memory.** Point it at the documents you're about to
 feed your AI, or at the databases your AI already searches (its memory), and
 it tells you what sensitive data is in there: how much, how risky, and
@@ -139,6 +132,12 @@ The same goes for managed deployment: if you want this auditor running inside
 your own cloud rather than on Agencii, that's an engagement, not a README
 section. Deploying this agent for your own clients? The onboarding form lets
 you point the contact at your own security team instead, or switch it off.
+
+## Status
+
+[![tests](https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml)
+[![release](https://img.shields.io/github/v/release/Agenvana/ragleakguard-agent)](https://github.com/Agenvana/ragleakguard-agent/releases)
+[![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 ## Credits
 
