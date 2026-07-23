@@ -1,13 +1,16 @@
 # RAGLeakGuard Agent — the agent that audits agents
 
-[![tests](https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml)
-[![release](https://img.shields.io/github/v/release/Agenvana/ragleakguard-agent)](https://github.com/Agenvana/ragleakguard-agent/releases)
-[![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
-[![powered by RAGLeakGuard](https://img.shields.io/badge/powered%20by-RAGLeakGuard-0F172A)](https://github.com/Agenvana/RAGLeakGuard)
+<p>
+  <a href="https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml"><img src="https://github.com/Agenvana/ragleakguard-agent/actions/workflows/tests.yml/badge.svg" alt="tests" height="20"></a>
+  <a href="https://github.com/Agenvana/ragleakguard-agent/releases"><img src="https://img.shields.io/github/v/release/Agenvana/ragleakguard-agent" alt="release" height="20"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="license" height="20"></a>
+  <a href="https://github.com/Agenvana/RAGLeakGuard"><img src="https://img.shields.io/badge/powered%20by-RAGLeakGuard-0F172A" alt="powered by RAGLeakGuard" height="20"></a>
+</p>
 
-A ready-to-deploy [Agency Swarm](https://agency-swarm.ai/) agency: the
-**AI Data Security Auditor** scans documents before ingestion, and Chroma /
-OpenAI vector stores on demand, reporting what your agents already remember.
+**A security guard for AI memory.** Point it at the documents you're about to
+feed your AI, or at the databases your AI already searches (its memory), and
+it tells you what sensitive data is in there: how much, how risky, and
+exactly where to look. It never repeats the sensitive values themselves.
 Powered by **[RAGLeakGuard](https://github.com/Agenvana/RAGLeakGuard)**, the
 open-source scanner for AI pipelines and vector stores.
 
@@ -18,7 +21,8 @@ open-source scanner for AI pipelines and vector stores.
 > sister repo:
 > **[ragleakguard-safe-qna-agent](https://github.com/Agenvana/ragleakguard-safe-qna-agent)**.
 
-Runs on the [Agencii](https://agencii.ai/) platform or any Docker host.
+Deploy it on [Agencii](https://agencii.ai/) in a few clicks, or run it
+anywhere Docker runs.
 
 ---
 
@@ -72,7 +76,7 @@ our store?" to the auditor. The tools are also plain `BaseTool` classes: copy
 importable) and that agent gains `ScanFiles` / `ScanChromaStore` /
 `ScanOpenAIVectorStore` directly.
 
-## Quick start (local)
+## Quick start (local, for developers)
 
 Requires **Python 3.12** (agency-swarm needs ≥3.12; ragleakguard's detection
 extra needs <3.13 for prebuilt wheels).
@@ -107,13 +111,13 @@ python -m pytest tests/ -q
 With your own OpenAI API key configured, Agencii does not deduct platform
 credits for AI tokens; your running cost is your OpenAI token spend.
 
-## Marketplace onboarding
+## Onboarding form
 
-`onboarding_tool.py` defines the customization form shown when someone
-installs the auditor from the Agencii marketplace: agent name, model,
-detection locale and business context. `onboarding_config.py` is the
-committed default configuration. No onboarding field asks for real sensitive
-data, ever.
+When you deploy this agent, a short form customizes it for you: the agent's
+name, which model it runs on, the detection locale, and your business
+context. (Technically: `onboarding_tool.py` defines the form,
+`onboarding_config.py` holds the committed defaults.) No field ever asks for
+real sensitive data.
 
 ## Repo layout
 
@@ -144,5 +148,5 @@ vector database for exposed sensitive data") and
 [Agency Swarm](https://github.com/VRSEN/agency-swarm) /
 the [agency-starter-template](https://github.com/agency-ai-solutions/agency-starter-template).
 
-License: Apache-2.0. Detection is best-effort; absence of findings is not
-proof of safety.
+License: [Apache-2.0](LICENSE). Detection is best-effort; absence of
+findings is not proof of safety.
