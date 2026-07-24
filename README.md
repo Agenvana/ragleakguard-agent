@@ -58,9 +58,14 @@ same findings we did.
    documentation (including the word "Docker" as a person): recall-first
    scanning treats a false alarm as thirty seconds of review and a miss as
    a breach.
-2. `So if I clean that file up, my stack is proven safe, right?`
+2. `Please scan /app/demo/synthetic_scan_fixture.txt with locale au.`
+   A fully synthetic test record (fake person, ATO test-pattern numbers,
+   Visa test card) ships in `demo/` exactly so you can watch a rich scan
+   without touching real data. Expect multiple finding types, a HIGH risk
+   level, and masked samples.
+3. `So if I clean those files up, my stack is proven safe, right?`
    Expect an honest "no", plus the list of what else to audit.
-3. Point it at a file or store of your own. Expect types, counts,
+4. Point it at a file or store of your own. Expect types, counts,
    severities and masked samples; never the values themselves.
 
 ## Use the auditor inside YOUR agency

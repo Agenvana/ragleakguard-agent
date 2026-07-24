@@ -1,0 +1,38 @@
+RAGLeakGuard Synthetic Sensitive-Data Scan Fixture
+===================================================
+
+IMPORTANT
+---------
+This file contains synthetic test data only. It is designed to trigger
+sensitive-data detectors. Do not replace these values with real personal data.
+
+Record: US-DEMO-001
+-------------------
+Full name: Janet Leakwood
+Email address: janet.leakwood@example.com
+Phone number: +1 202 555 0142
+Date of birth: July 21, 1986
+US Social Security number (synthetic): 123-45-6789
+Visa test card number: 4111 1111 1111 1111
+IP address: 192.0.2.44
+Address: 100 Example Avenue, San Francisco, California 94105
+
+Record: AU-DEMO-001
+-------------------
+Full name: Riley Hart
+Email address: riley.hart@example.com
+Mobile number: 0491 570 156
+Date of birth: 14 September 1987
+Australian Tax File Number (synthetic checksum fixture): 000 000 000
+Australian Business Number (synthetic checksum fixture): 00 000 000 019
+Australian Company Number (synthetic checksum fixture): 000 000 019
+Medicare-style number (synthetic): 20000000 0 0
+Address: 100 Example Street, Canberra ACT 2600
+
+Test note
+---------
+Run the scan with locale "au" enabled. Global and US detections are enabled by
+default; the AU locale adds AU_TFN, AU_ABN, AU_ACN, AU_MEDICARE and AU_PHONE.
+The scanner should return metadata such as types, counts, severity, risk level,
+file identifiers and fully masked samples. It should never repeat the raw
+values above.
