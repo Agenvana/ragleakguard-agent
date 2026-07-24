@@ -46,6 +46,23 @@ Detection engine: [RAGLeakGuard](https://github.com/Agenvana/RAGLeakGuard)
 US entities are on by default; `locale='au'` adds Australian identifiers
 (TFN, ABN, ACN, Medicare, AU phone formats) with checksum validation.
 
+## Try it in 2 minutes
+
+Deploy, then type these exact prompts. Only the prompts are scripted: the
+responses are generated live, and the scan is deterministic, so you get the
+same findings we did.
+
+1. `Please scan the file /app/README.md and tell me what sensitive data it contains.`
+   That file is this README, shipped inside the agent's own container.
+   Expect a risk level and findings by type and count. It flags its own
+   documentation (including the word "Docker" as a person): recall-first
+   scanning treats a false alarm as thirty seconds of review and a miss as
+   a breach.
+2. `So if I clean that file up, my stack is proven safe, right?`
+   Expect an honest "no", plus the list of what else to audit.
+3. Point it at a file or store of your own. Expect types, counts,
+   severities and masked samples; never the values themselves.
+
 ## Use the auditor inside YOUR agency
 
 The deployable agencies above are thin wrappers; the reusable unit is the
